@@ -17,12 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import bienvenida, despedida, saludo, saludar_con_nombre,kodemia
+from .views import bienvenida, despedida, saludar_con_nombre,kodemia
 
 urlpatterns = [
     path("", bienvenida),
     path("despedida/", despedida),
-    path("saludo/", saludo),
     path("saludo/<str:nombre>", saludar_con_nombre),
     path("kodemia/<str:nombre>", kodemia),
 ]

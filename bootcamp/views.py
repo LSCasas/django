@@ -1,16 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.template import loader
 # Create your views here.
 
 def list_koder(request):
-    nombres = ["Juan", "Ana", "Luis", "Maria", "Carlos"]
-    nombres_str = ""
-    
-    for i, nombre in enumerate(nombres, start=1):
-        nombres_str += f"ID: {i} - Nombre: {nombre}<br>"
-    
-    return HttpResponse(f"Lista de nombres con ID:<br>{nombres_str}")
+    context = {
+        "bootcamp": {"name": "Python", "module": "Django"},
+        "koders": [
+        {"name": "Benjamin", "generation": "1g", "bootcamp": "Python", "is_active": True},
+        {"name": "Luis", "generation": "1g", "bootcamp": "Python", "is_active": True},
+        {"name": "Irving", "generation": "1g", "bootcamp": "Python", "is_active": False}
+    ]
+    }
+
+    template = loader.get_template("bootcamp/templates/list_koders.html")
+
+
+    return HttpResponse(template.render(context, request))
 
 def get_koder(request, id):
     nombres = ["Juan", "Ana", "Luis", "Maria", "Carlos"]

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse
+from django.template import loader
 # Create your views here.
 def bienvenida(request):
     return HttpResponse("Bienvenido")
@@ -12,8 +12,13 @@ def saludo(request):
     return HttpResponse("Saludo")
 
 def saludar_con_nombre(request, nombre):
-    print("Imrpimiendo..", nombre)
-    return HttpResponse(f"Hola {nombre}")
+    context = {
+        "name": nombre,
+        "lastname": "Perez"
+        
+        }
+    template = loader.get_template("base.html")
+    return HttpResponse(template.render(context, request))
 
 def kodemia(request, nombre):
     if nombre == "mentor":
