@@ -17,7 +17,7 @@ def saludar_con_nombre(request, nombre):
         "lastname": "Perez"
         
         }
-    template = loader.get_template("base.html")
+    template = loader.get_template("templates/base.html")
     return HttpResponse(template.render(context, request))
 
 def kodemia(request, nombre):

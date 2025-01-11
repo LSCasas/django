@@ -1,0 +1,26 @@
+<!-- template hijo -->
+{% extends "templates/base.html" %}
+<!-- bloque dinamico hijo -->
+{% block title%}
+<h2>Esto es el TITUTLO en el hijo LIST KODERS</h2>
+{% endblock title%} {% block content%} {% for koder in koders%}
+<span> Name: {{koder.name}}</span>
+<span> Generation: {{koder.generation}}</span>
+
+<span> Bootcamp: {{koder.bootcamp}}</span>
+<span> Is activate: {{koder.is_active}}</span>
+
+{% endfor %} {% endblock content%}
+
+<!-- <div style="border: 1px solid green">
+  {% for koder in koders %}
+  <p>name: {{koder.name}}</p>
+  <p>generation: {{koder.generation}}</p>
+  <p>bootcamp: {{koder.bootcamp}}</p>
+
+  {% if koder.is_active %}
+  <p style="color: green">Esta activo: {{koder.is_active}}</p>
+  {% else %}
+  <p style="color: red">Esta activo: {{koder.is_active}}</p>
+  {% endif %} {% endfor %}
+</div> -->
