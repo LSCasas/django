@@ -1,0 +1,19 @@
+1 - Limpiar su base de datos
+2 - Van a aplicar el script ./script_ejercicio.py en su shell de ORM
+3 - Hacer el siguiente script_ejercicio
+
+Ejercicios de queries py
+1 - Bootcamp donde esten los koders donde su apellido contenga 'ez'
+R=  Bootcamp.objects.filter(generations__koders__last_name__contains='ez')
+2 - Query del ejercicio 1 pero SIN DUPLICADOS
+  Resultado esperado -> <QuerySet [<Bootcamp: python>, <Bootcamp: javascript>]>
+R= Bootcamp.objects.filter(generations__koders__last_name__contains='ez').distinct()
+
+Tarea
+3 - Mostrarle a un mentor a todos los koders de las generaciones a las que pertenece
+R= mentor = Mentor.objects.get(first_name="Alfredo")  # Reemplaza "Alfredo" con el mentor deseado
+koders = Koder.objects.filter(generation__in=mentor.generations.all())
+
+4 -  Mostrar todos los koders, excepto los que pertenezcan a el ultimo bootcamp creado
+R=ultimo_bootcamp = Bootcamp.objects.latest('id')  # Obtiene el último Bootcamp creado
+koders = Koder.objects.exclude(generation__bootcamp=ultimo_bootcamp)
