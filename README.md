@@ -1,0 +1,2 @@
+# Django-Practices
+This repository contains practices from the Kodemia Bootcamp's Django module, covering concepts such as web application development with Django, routing, views, models, JWT authentication, asynchrony handling, error management, and performance optimization. Django is a high-level web framework for Python that enables rapid and efficient development of robust and scalable applications, following the "batteries included" philosophy.
